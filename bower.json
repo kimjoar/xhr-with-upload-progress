@@ -1,0 +1,18 @@
+{
+  "name": "xhr-upload-progress",
+  "version": "0.0.0",
+  "authors": [
+    "Kim Joar Bekkelund <kjbekkelund@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "timer": "~0.0.1"
+  }
+}
