@@ -15,30 +15,32 @@
     "use strict";
 
     return function(xhr, callback) {
-        if (typeof xhr === 'function' && callback == null) {
-            callback = xhr;
-            xhr = new XMLHttpRequest();
-        }
+        return function() {
+            if (typeof xhr === 'function' && callback == null) {
+                callback = xhr;
+                xhr = new XMLHttpRequest();
+            }
 
-        if (xhr.upload) {
-            var time = timer();
+            if (xhr.upload) {
+                var time = timer();
 
-            xhr.upload.addEventListener('loadstart', time.start, false);
+                xhr.upload.addEventListener('loadstart', time.start, false);
 
-            xhr.upload.addEventListener('progress', function(event) {
-                if (!event.lengthComputable) return;
+                xhr.upload.addEventListener('progress', function(event) {
+                    if (!event.lengthComputable) return;
 
-                var position = event.loaded || event.position;
-                var total = event.total;
+                    var position = event.loaded || event.position;
+                    var total = event.total;
 
-                callback({
-                    percent: Math.floor((position * 100) / total),
-                    time: time()
-                });
-            }, false);
-        }
+                    callback({
+                        percent: Math.floor((position * 100) / total),
+                        time: time()
+                    });
+                }, false);
+            }
 
-        return xhr;
+            return xhr;
+        };
     };
 
-});
+}));
