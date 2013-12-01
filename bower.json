@@ -1,6 +1,6 @@
 {
   "name": "xhr-upload-progress",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "authors": [
     "Kim Joar Bekkelund <kjbekkelund@gmail.com>"
   ],
@@ -14,5 +14,8 @@
   ],
   "dependencies": {
     "timer": "~0.0.1"
+  },
+  "devDependencies": {
+    "sinonjs": "~1.7.3"
   }
 }
